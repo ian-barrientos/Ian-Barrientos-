@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ian Barrientos | Personal Page</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f4f8fc;
+            color: #1d3557;
+            line-height: 1.6;
+        }
+
+        /* NAVIGATION */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: #0d47a1;
+            padding: 15px 5%;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #bbdefb;
+        }
+
+        /* HOME / HERO */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 50px 20px;
+            background: linear-gradient(
+                135deg,
+                #0d47a1,
+                #1976d2,
+                #64b5f6
+            );
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .hero h2 {
+            font-size: 25px;
+            font-weight: normal;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .button {
+            display: inline-block;
+            background: white;
+            color: #0d47a1;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* GENERAL SECTION */
+        section {
+            padding: 70px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            color: #0d47a1;
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #607d8b;
+        }
+
+        /* ABOUT ME */
+        .about-container {
+            max-width: 1000px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .profile-card {
+            background: white;
+            padding: 20px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .profile-card img {
+            width: 100%;
+            max-width: 250px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 15px;
+            border: 5px solid #1976d2;
+        }
+
+        .profile-card h3 {
+            margin-top: 15px;
+            color: #0d47a1;
+        }
+
+        .about-text {
+            background: white;
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+        }
+
+        /* PERSONAL INFORMATION */
+        .info-grid {
+            max-width: 900px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .info-card {
+            background: white;
+            padding: 22px;
+            border-left: 5px solid #1976d2;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.07);
+        }
+
+        .info-card strong {
+            color: #0d47a1;
+        }
+
+        /* HOBBIES */
+        .hobby-grid {
+            max-width: 1000px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .hobby-card {
+            background: white;
+            padding: 35px 20px;
+            text-align: center;
+            border-radius: 18px;
+            box-shadow: 0 7px 20px rgba(0,0,0,0.08);
+            transition: 0.3s;
+        }
+
+        .hobby-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .hobby-icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .hobby-card h3 {
+            color: #0d47a1;
+            margin-bottom: 8px;
+        }
+
+        /* FAVORITE FOODS */
+        .food-grid {
+            max-width: 900px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .food-card {
+            background: #0d47a1;
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            border-radius: 15px;
+            font-size: 20px;
+            font-weight: bold;
+            box-shadow: 0 7px 20px rgba(0,0,0,0.12);
+        }
+
+        /* PLACES */
+        .places-box {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+
+        .places {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .place {
+            background: #e3f2fd;
+            color: #0d47a1;
+            padding: 12px 22px;
+            border-radius: 25px;
+            font-weight: bold;
+        }
+
+        /* FAVORITE COLOR AND DRINKS */
+        .favorites-box {
+            max-width: 700px;
+            margin: auto;
+            background: white;
+            padding: 35px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        }
+
+        .blue-text {
+            color: #0d47a1;
+            font-weight: bold;
+        }
+
+        /* MOTTO */
+        .motto-section {
+            background: linear-gradient(
+                135deg,
+                #0d47a1,
+                #1976d2
+            );
+            color: white;
+            text-align: center;
+        }
+
+        .motto-box {
+            max-width: 750px;
+            margin: auto;
+        }
+
+        .motto-box h2 {
+            font-size: 32px;
+            margin-bottom: 25px;
+        }
+
+        .motto {
+            font-size: 28px;
+            font-weight: bold;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #082b63;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        footer p {
+            margin: 5px;
+        }
+
+        /* MOBILE RESPONSIVE */
+        @media (max-width: 768px) {
+
+            .hero h1 {
+                font-size: 34px;
+            }
+
+            .hero h2 {
+                font-size: 20px;
+            }
+
+            .about-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hobby-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .food-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav ul {
+                gap: 12px;
+            }
+
+            nav a {
+                font-size: 12px;
+            }
+
+            section {
+                padding: 50px 5%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <ul>
+            <li><a href="#home">HOME</a></li>
+            <li><a href="#about">ABOUT ME</a></li>
+            <li><a href="#personal">PERSONAL INFO</a></li>
+            <li><a href="#hobbies">HOBBIES</a></li>
+            <li><a href="#foods">FOODS</a></li>
+            <li><a href="#places">PLACES</a></li>
+            <li><a href="#motto">MOTTO</a></li>
+        </ul>
+    </nav>
+
+    <!-- HOME -->
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <h1>IAN BARRIENTOS</h1>
+
+            <h2>My Personal Page</h2>
+
+            <p>
+                Welcome to my personal website!
+                Get to know more about me, my hobbies,
+                favorite foods, dreams, and personal goals.
+            </p>
+
+            <a href="#about" class="button">
+                Explore My Page
+            </a>
+
+        </div>
+
+    </section>
+
+    <!-- ABOUT ME -->
+    <section id="about">
+
+        <div class="section-title">
+
+            <h2>ABOUT ME</h2>
+
+            <p>Get to know Ian</p>
+
+        </div>
+
+   <div class="profile-card">
+    <a href="https://www.facebook.com/photo/?fbid=2523567551488575&set=a.194858654359488" target="_blank">
+        <img src="./ian-about.png.jpg" alt="Ian Barrientos">
+    </a>
+
+    <h3>Ian A. Barrientos</h3>
+    <p>4th-Year BSOA Student</p>
+</div>
+
+            <!-- ABOUT TEXT -->
+            <div class="about-text">
+
+                <p>
+                    I am <strong>Ian Barrientos</strong>,
+                    a 4th-year Bachelor of Science in
+                    Office Administration student at
+                    Pateros Technological College.
+                </p>
+
+                <p>
+                    I am dedicated to honing my skills in administrative support and office management. My ultimate goal is to graduate and earn my degree, proving to myself and others that perseverance and hard work lead to real success. Ready to step into the professional world, I am driven to turn every challenge into an opportunity for growth and to build a meaningful career.
+        
+                </p>
+
+        </div>
+
+    </section>
+
+    <!-- PERSONAL INFORMATION -->
+    <section id="personal">
+
+        <div class="section-title">
+
+            <h2>PERSONAL INFORMATION</h2>
+
+            <p>A few details about me</p>
+
+        </div>
+
+        <div class="info-grid">
+
+            <div class="info-card">
+
+                <strong>Age:</strong><br>
+
+                24 years old
+
+            </div>
+
+            <div class="info-card">
+
+                <strong>Height:</strong><br>
+
+                5'9"
+
+            </div>
+
+            <div class="info-card">
+
+                <strong>Address:</strong><br>
+
+                364 1st Street,
+                Barangay Katuparan,
+                Taguig City
+
+            </div>
+
+            <div class="info-card">
+
+                <strong>Email Address:</strong><br>
+
+                barrientosian52@gmail.com
+
+            </div>
+
+            <div class="info-card">
+
+                <strong>Contact Number:</strong><br>
+
+                09151764360
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- HOBBIES -->
+    <section id="hobbies">
+
+        <div class="section-title">
+
+            <h2>MY HOBBIES</h2>
+
+            <p>
+                Things I enjoy doing during my free time
+            </p>
+
+        </div>
+
+        <div class="hobby-grid">
+
+            <div class="hobby-card">
+
+                <div class="hobby-icon">
+                    🚴
+                </div>
+
+                <h3>Biking</h3>
+
+                <p>
+                    I enjoy biking because it helps me
+                    get fresh air and relax.
+                </p>
+
+            </div>
+
+            <div class="hobby-card">
+
+                <div class="hobby-icon">
+                    🎤
+                </div>
+
+                <h3>Singing</h3>
+
+                <p>
+                    I like singing whenever I have
+                    free time.
+                </p>
+
+            </div>
+
+            <div class="hobby-card">
+
+                <div class="hobby-icon">
+                    🍳
+                </div>
+
+                <h3>Cooking</h3>
+
+                <p>
+                    I enjoy preparing delicious food.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- FAVORITE FOODS -->
+    <section id="foods">
+
+        <div class="section-title">
+
+            <h2>FAVORITE FOODS</h2>
+
+            <p>Some of my favorite dishes</p>
+
+        </div>
+
+        <div class="food-grid">
+
+            <div class="food-card">
+                Monggo
+            </div>
+
+            <div class="food-card">
+                Tortang Talong
+            </div>
+
+            <div class="food-card">
+                Adobo
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- PLACES -->
+    <section id="places">
+
+        <div class="section-title">
+
+            <h2>PLACES I WANT TO GO</h2>
+
+            <p>
+                Places I want to visit and explore
+            </p>
+
+        </div>
+
+        <div class="places-box">
+
+            <p>
+                These are some of the places I would
+                like to visit and experience:
+            </p>
+
+            <div class="places">
+
+                <span class="place">
+                    Tagaytay
+                </span>
+
+                <span class="place">
+                    Batangas
+                </span>
+
+                <span class="place">
+                    Laguna
+                </span>
+
+                <span class="place">
+                    Antipolo
+                </span>
+
+                <span class="place">
+                    Baguio
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+  <!-- FAVORITE COLOR AND DRINKS -->
+  
+        <div class="favorites-box">
+
+            <p>
+                My favorite color is
+                <span class="blue-text">
+                    BLUE
+                </span>!
+            </p>
+
+
+            <br>
+
+
+            <p>
+                My favorite drink is
+                <span class="blue-text">
+                    Water
+                </span>.
+            </p>
+
+
+            <p>
+                Staying hydrated is important!
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- MOTTO -->
+    <section
+        class="motto-section"
+        id="motto"
+    >
+
+        <div class="motto-box">
+
+            <h2>MY MOTTO</h2>
+
+            <p class="motto">
+                "Success isn't about how fast you start,
+it's about how strong you finish"
+            </p>
+
+            <p>
+                — Ian Barrientos
+            </p>
+
+            <br>
+
+            <p>
+                Thank you for visiting my page to know me more!!
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+
+        <p>
+            <strong>
+                IAN BARRIENTOS PERSONAL PAGE
+            </strong>
+        </p>
+
+        <p>
+            © 2026 Ian Barrientos.
+            All Rights Reserved.
+        </p>
+
+    </footer>
+
+</body>
+</html>
+
+
